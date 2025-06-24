@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { registerUser } from "@/services/authService";
@@ -12,6 +11,7 @@ export default function Register() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // ✅ 사전 유효성 검사
     if (!email || !password || !confirmPassword) {
       toast.error("모든 항목을 입력해 주세요.");
       return;
@@ -25,10 +25,10 @@ export default function Register() {
       return;
     }
 
+    // ✅ Supabase 요청
     const { error } = await registerUser(email, password);
     if (error) {
-      console.error("회원가입 에러:", error);
-      toast.error("회원가입 실패: " + error.message);
+      toast.error("회원가입에 실패했습니다. 잠시 후 다시 시도해 주세요.");
     } else {
       toast.success("회원가입 성공!");
     }

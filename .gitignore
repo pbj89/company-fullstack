@@ -1,0 +1,18 @@
+# Node modules
+node_modules/
+dist/
+build/
+
+# dotenv files
+.env
+.env.local
+.env.*.local
+
+# VSCode settings
+.vscode/
+*.log
+.DS_Store
+
+# React/Vite
+coverage/
+*.tsbuildinfo
